@@ -32,7 +32,7 @@ void Insert_value(Group *&head, int value)
     }
     temp->next = newNode;
 }
-void Print_link_list(Group *head)
+void print_link_list(Group *head)
 {
 
     Group *temp = head;
@@ -67,7 +67,7 @@ int main()
 
         Insert_value(head, input);
     }
-    Print_link_list(head);
+    print_link_list(head);
     cout << duplicate << " " << endl;
     if (duplicate > 0)
     {

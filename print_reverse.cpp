@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <iostream>
 using namespace std;
-int sum = 0;
 class Group
 {
 public:
@@ -13,10 +12,9 @@ public:
         this->next = NULL;
     }
 };
-void Insert_value(Group *&head, int value)
+void print_at_tail(Group *&head, int val)
 {
-
-    Group *newNode = new Group(value);
+    Group *newNode = new Group(val);
     Group *temp = head;
     if (head == NULL)
     {
@@ -26,52 +24,47 @@ void Insert_value(Group *&head, int value)
 
     while (temp->next != NULL)
     {
+
         temp = temp->next;
     }
     temp->next = newNode;
-}
-void print_link_list(Group *head)
+};
+void reverse(Group *head)
 {
-
+    if (head == NULL)
+    {
+        return;
+    }
+    reverse(head->next);
+    cout << head->value << " ";
+}
+void print_list_link(Group *head)
+{
     Group *temp = head;
-    cout << "Link list : ";
-
     while (temp != NULL)
     {
-        sum++;
-        cout << temp->value << " ";
+
+        print_list_link(head);
         temp = temp->next;
+        cout << temp->value << " ";
     }
-
-    cout << endl;
 };
-
 int main()
 {
-    int input;
+    int n;
     Group *head = NULL;
     while (true)
     {
-
-        cin >> input;
-        if (input == -1)
+        cin >> n;
+        if (n == -1)
         {
             break;
         }
-
-        Insert_value(head, input);
+        print_at_tail(head, n);
     }
-    for (Group *i = head; i->next != NULL; i = i->next)
-    {
-        for (Group *j = i->next; j != NULL; j = j->next)
-        {
-            if (i->value > j->value)
-            {
-                swap(i->value, j->value);
-            }
-        }
-    }
-    print_link_list(head);
+    // print_list_link(head);
+    reverse(head);
+    cout << endl;
 
     return 0;
 }

@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include <iostream>
+#include <algorithm>
 using namespace std;
+// using std::cin;
+// using std::cout;
+
 int sum = 0;
+int global_max = INT_MIN;
+
 class Group
 {
 public:
@@ -39,10 +45,14 @@ void print_link_list(Group *head)
     while (temp != NULL)
     {
         sum++;
-        cout << temp->value << " ";
+        if (temp->value > global_max)
+        {
+            global_max = temp->value;
+        }
+
+        // cout << temp->value << " ";
         temp = temp->next;
     }
-
     cout << endl;
 };
 
@@ -71,7 +81,9 @@ int main()
             }
         }
     }
+
     print_link_list(head);
+    cout << global_max << endl;
 
     return 0;
 }

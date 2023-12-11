@@ -65,7 +65,7 @@ int main()
     {
         for (Group *j = i->next; j != NULL; j = j->next)
         {
-            if (i->value > j->value)
+            if (i->value < j->value)
             {
                 swap(i->value, j->value);
             }

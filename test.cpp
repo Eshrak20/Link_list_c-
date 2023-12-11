@@ -29,7 +29,7 @@ void Insert_at_tail(Group *&head, int value)
     // temp ekhon last node e ;
     temp->next = newNode;
 }
-void Print_link_list(Group *head)
+void print_link_list(Group *head)
 {
     Group *temp = head;
     cout << "Link list : ";
@@ -59,7 +59,7 @@ int main()
         }
         else if (option == 2)
         {
-            Print_link_list(head);
+            print_link_list(head);
         }
     }
 

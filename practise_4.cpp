@@ -59,7 +59,7 @@ void Insert_at_pos(Group *&head, int pos, int val)
         temp->next = newNode;
     }
 }
-void Print_link_list(Group *head)
+void print_link_list(Group *head)
 {
 
     Group *temp = head;
@@ -105,7 +105,7 @@ int main()
     }
     if (flag == 1)
     {
-        Print_link_list(head);
+        print_link_list(head);
     }
 
     return 0;
